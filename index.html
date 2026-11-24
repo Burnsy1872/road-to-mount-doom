@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Road to Mount Doom — a Middle-earth training ledger</title>
+<meta name="description" content="Every run and every ride, measured against the road from Hobbiton to the fires of Orodruin. A personal fitness ledger with a 2,863 km goal.">
+<meta name="theme-color" content="#120e07">
+<meta name="color-scheme" content="dark">
+
+<!-- Open Graph. Replace the image URL with your own domain once deployed. -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="The Road to Mount Doom">
+<meta property="og:description" content="Every run and every ride, measured against the road from Hobbiton to the fires of Orodruin.">
+<meta property="og:image" content="assets/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="topbar">
+  <a class="brand" href="#journey" aria-label="The Road to Mount Doom, back to top">
+    <svg class="brand-mark" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <circle cx="12" cy="12" r="9.2" stroke="currentColor" stroke-width="1.6"/>
+      <circle cx="12" cy="12" r="5.4" stroke="currentColor" stroke-width=".9" opacity=".65"/>
+      <circle cx="12" cy="12" r="1.6" fill="currentColor"/>
+    </svg>
+    <span class="brand-text">The Road to Mount Doom</span>
+  </a>
+
+  <nav class="nav" aria-label="Sections">
+    <a href="#journey">Journey</a>
+    <a href="#ledger">Ledger</a>
+    <a href="#quests">Quests</a>
+    <a href="#trends">Trends</a>
+    <a href="#records">Records</a>
+    <a href="#journal">Journal</a>
+  </nav>
+
+  <span class="chip" id="nav-chip" title="Journey progress">—</span>
+  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+</header>
+
+<main id="main">
+
+  <!-- ─────────────────────────  JOURNEY  ───────────────────────── -->
+  <section class="hero" id="journey" aria-labelledby="hero-title">
+    <div class="wrap">
+      <p class="overline">The Lord of the Rings</p>
+      <h1 id="hero-title">The Road to Mount Doom</h1>
+      <p class="hero-quote"><span id="quote-text">&ldquo;Courage is found in unlikely places.&rdquo;</span> <cite id="quote-cite">— Gildor</cite></p>
+
+      <article class="journey-card" aria-labelledby="journey-heading">
+        <div class="journey-head">
+          <h2 class="journey-title" id="journey-heading">
+            The Journey <span class="journey-day" id="journey-day"></span>
+          </h2>
+          <span class="journey-leagues" id="journey-leagues"></span>
+        </div>
+
+        <div class="journey-body">
+          <p class="journey-figure">
+            <span class="figure-value" id="journey-km">—</span>
+            <span class="figure-unit">km</span>
+            <span class="figure-goal" id="journey-goal"></span>
+          </p>
+
+          <div class="journey-progress">
+            <div class="track"
+                 id="journey-track"
+                 role="progressbar"
+                 aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"
+                 aria-label="Progress from Hobbiton to Mount Doom">
+              <div class="track-fill" id="track-fill"></div>
+              <div class="track-head" id="track-head" aria-hidden="true"></div>
+              <div class="track-ticks" id="track-ticks" aria-hidden="true"></div>
+            </div>
+            <div class="journey-meta">
+              <p class="journey-next" id="journey-next">Loading the ledger&hellip;</p>
+              <p class="journey-pace" id="journey-pace"></p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Map panel -->
+      <figure class="map-panel" id="map-panel">
+        <div class="map-frame">
+          <picture>
+            <source srcset="assets/map.webp" type="image/webp">
+            <img id="map-img"
+                 src="assets/map.jpg"
+                 width="2000" height="1091"
+                 alt="Map of Middle-earth with the route from Hobbiton to Mount Doom marked in gold"
+                 fetchpriority="high" decoding="async">
+          </picture>
+
+          <svg class="map-svg" id="map-svg" viewBox="0 0 2000 1091"
+               preserveAspectRatio="none" aria-hidden="true" focusable="false">
+            <path class="route-full" id="route-full" fill="none"/>
+            <path class="route-travelled" id="route-travelled" fill="none"/>
+            <g class="map-marker" id="map-marker">
+              <circle class="marker-halo" r="26"/>
+              <circle class="marker-ring" r="13"/>
+              <circle class="marker-core" r="5"/>
+            </g>
+          </svg>
+
+          <div class="map-pins" id="map-pins"></div>
+        </div>
+        <figcaption>
+          The road from Hobbiton to the fires of Orodruin, <span id="map-caption-km">—</span> km travelled.
+        </figcaption>
+        <ol class="map-waypoints" id="map-waypoints" aria-label="Waypoints along the road"></ol>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────  LEDGER  ───────────────────────── -->
+  <section class="section" id="ledger" aria-labelledby="ledger-title">
+    <div class="wrap">
+      <header class="section-head">
+        <p class="overline">All time</p>
+        <h2 id="ledger-title">The Ledger</h2>
+        <p class="section-sub">Every league walked and ridden since the first step out of the Shire.</p>
+      </header>
+
+      <div class="ledger-group">
+        <div class="ledger-group-head">
+          <h3 class="ledger-group-title">The Road on Foot</h3>
+        </div>
+        <div class="stat-grid ledger-grid" id="stat-foot"></div>
+      </div>
+
+      <div class="ledger-group">
+        <div class="ledger-group-head">
+          <h3 class="ledger-group-title">The Ride of the Mark</h3>
+        </div>
+        <div class="stat-grid ledger-grid" id="stat-wheel"></div>
+      </div>
+
+      <p class="ledger-total" id="ledger-total"></p>
+
+      <div class="balance-card" id="balance-card" hidden>
+        <div class="balance-head">
+          <h3>The Balance of the Road</h3>
+          <ul class="legend" aria-label="Legend">
+            <li><i class="swatch swatch-foot"></i>On foot</li>
+            <li><i class="swatch swatch-wheel"></i>On wheels</li>
+          </ul>
+        </div>
+        <div class="balance-rows" id="balance-rows"></div>
+        <p class="balance-note" id="balance-note"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────  QUESTS  ───────────────────────── -->
+  <section class="section" id="quests" aria-labelledby="quests-title">
+    <div class="wrap">
+      <header class="section-head">
+        <p class="overline">The tally</p>
+        <h2 id="quests-title">Quests &amp; Oaths</h2>
+        <p class="section-sub">What this week and this month have asked of you.</p>
+      </header>
+
+      <div class="quest-block">
+        <div class="quest-head">
+          <h3>This Week's Quests</h3>
+          <span class="quest-range" id="week-range"></span>
+        </div>
+        <div class="week-split">
+          <div class="week-half">
+            <h4 class="week-sub">On foot</h4>
+            <div class="stat-grid week-grid" id="week-foot"></div>
+          </div>
+          <div class="week-half">
+            <h4 class="week-sub">On wheels</h4>
+            <div class="stat-grid week-grid" id="week-wheel"></div>
+          </div>
+        </div>
+        <p class="quest-note" id="week-note"></p>
+      </div>
+
+      <div class="quest-block">
+        <div class="quest-head">
+          <h3>The Monthly Oaths</h3>
+          <span class="quest-range" id="month-range"></span>
+        </div>
+        <div class="oath-grid" id="oath-grid"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────  TRENDS  ───────────────────────── -->
+  <section class="section" id="trends" aria-labelledby="trends-title">
+    <div class="wrap">
+      <header class="section-head">
+        <p class="overline">The last twelve weeks</p>
+        <h2 id="trends-title">The Long Slog</h2>
+        <p class="section-sub">Distance above, climbing below. Hover a week for the detail.</p>
+      </header>
+
+      <div class="chart-card">
+        <div class="chart-legend">
+          <span><i class="swatch swatch-foot"></i>On foot</span>
+          <span><i class="swatch swatch-wheel"></i>On wheels</span>
+          <span class="chart-total" id="chart-total"></span>
+        </div>
+        <div class="chart-wrap" id="chart-wrap">
+          <svg id="chart" role="img" aria-label="Weekly distance and elevation for the last twelve weeks"></svg>
+          <div class="chart-tip" id="chart-tip" hidden></div>
+        </div>
+        <details class="chart-table">
+          <summary>View as a table</summary>
+          <div class="table-scroll">
+            <table id="chart-data-table">
+              <caption class="visually-hidden">Weekly distance and elevation, last twelve weeks</caption>
+              <thead>
+                <tr><th scope="col">Week of</th><th scope="col">On foot</th><th scope="col">On wheels</th><th scope="col">Total</th><th scope="col">Climbing</th></tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────  RECORDS  ───────────────────────── -->
+  <section class="section" id="records" aria-labelledby="records-title">
+    <div class="wrap">
+      <header class="section-head">
+        <p class="overline">Deeds worth singing about</p>
+        <h2 id="records-title">Records &amp; Streaks</h2>
+        <p class="section-sub">The days the road gave something back.</p>
+      </header>
+      <ul class="record-list" id="record-list"></ul>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────  JOURNAL  ───────────────────────── -->
+  <section class="section" id="journal" aria-labelledby="journal-title">
+    <div class="wrap">
+      <header class="section-head">
+        <p class="overline">Most recent</p>
+        <h2 id="journal-title">The Journal</h2>
+        <p class="section-sub">The last few days on the road.</p>
+      </header>
+      <div class="journal-card">
+        <ol class="feed" id="feed"></ol>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="footer-mark" aria-hidden="true">✦</p>
+    <p id="footer-source">Forged in the fires of Orodruin. Data from <a href="https://www.strava.com" rel="noopener">Strava</a>.</p>
+    <p class="footer-meta" id="footer-meta"></p>
+  </div>
+</footer>
+
+<noscript>
+  <p class="noscript">This ledger renders from <code>data/data.json</code> and needs JavaScript. The data is still there if you want to read it directly.</p>
+</noscript>
+
+<script type="module" src="js/app.js"></script>
+</body>
+</html>

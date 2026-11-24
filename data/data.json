@@ -1,0 +1,339 @@
+{
+  "generated_at": "2026-11-24T18:25:07+00:00",
+  "source": "strava",
+  "athlete": {
+    "name": ""
+  },
+  "quote": {
+    "text": "Courage is found in unlikely places.",
+    "author": "Gildor"
+  },
+  "journey": {
+    "start": "2026-11-17",
+    "goal_km": 2863.0,
+    "km": 71.2
+  },
+  "totals": {
+    "foot": {
+      "activities": 411,
+      "km": 2715.7,
+      "elev_m": 10378,
+      "time_s": 999597
+    },
+    "wheel": {
+      "activities": 94,
+      "km": 2071.3,
+      "elev_m": 16487,
+      "time_s": 302781
+    },
+    "all": {
+      "activities": 505,
+      "km": 4787.0,
+      "elev_m": 26865,
+      "time_s": 1302378,
+      "active_days": 487
+    }
+  },
+  "periods": {
+    "week": {
+      "start": "2026-11-23",
+      "foot_km": 5.0,
+      "wheel_km": 0.0,
+      "foot_elev_m": 38.0,
+      "wheel_elev_m": 0.0,
+      "foot_time_s": 1871,
+      "wheel_time_s": 0
+    },
+    "month": {
+      "start": "2026-11-01",
+      "foot_km": 51.4,
+      "wheel_km": 190.3
+    }
+  },
+  "goals": {
+    "month": {
+      "foot_km": 70.0,
+      "wheel_km": 200.0
+    }
+  },
+  "records": [
+    {
+      "id": "longest-foot",
+      "label": "Longest run",
+      "value": 17.002,
+      "unit": "km",
+      "dec": 1,
+      "date": "2026-07-02",
+      "activity": "Afternoon Run"
+    },
+    {
+      "id": "longest-wheel",
+      "label": "Longest ride",
+      "value": 51.37,
+      "unit": "km",
+      "dec": 1,
+      "date": "2026-08-01",
+      "activity": "Afternoon Ride"
+    },
+    {
+      "id": "climb",
+      "label": "Biggest climb",
+      "value": 403,
+      "unit": "m",
+      "dec": 0,
+      "date": "2026-11-19",
+      "activity": "Afternoon Ride"
+    },
+    {
+      "id": "week",
+      "label": "Biggest week",
+      "value": 112.8,
+      "unit": "km",
+      "dec": 1,
+      "date": "2026-08-17",
+      "activity": "week beginning"
+    },
+    {
+      "id": "streak",
+      "label": "Longest streak",
+      "value": 5,
+      "unit": "days",
+      "dec": 0,
+      "date": "2023-05-30",
+      "activity": ""
+    }
+  ],
+  "streak": {
+    "current": 3,
+    "longest": 5,
+    "longest_end": "2023-05-30"
+  },
+  "weeks": [
+    {
+      "start": "2026-09-07",
+      "foot_km": 22.6,
+      "wheel_km": 22.7,
+      "elev_m": 390,
+      "time_s": 12358
+    },
+    {
+      "start": "2026-09-14",
+      "foot_km": 12.0,
+      "wheel_km": 19.5,
+      "elev_m": 213,
+      "time_s": 6657
+    },
+    {
+      "start": "2026-09-21",
+      "foot_km": 15.0,
+      "wheel_km": 28.1,
+      "elev_m": 130,
+      "time_s": 8647
+    },
+    {
+      "start": "2026-09-28",
+      "foot_km": 14.1,
+      "wheel_km": 30.0,
+      "elev_m": 344,
+      "time_s": 8993
+    },
+    {
+      "start": "2026-10-05",
+      "foot_km": 6.7,
+      "wheel_km": 22.7,
+      "elev_m": 181,
+      "time_s": 4795
+    },
+    {
+      "start": "2026-10-12",
+      "foot_km": 11.4,
+      "wheel_km": 20.3,
+      "elev_m": 329,
+      "time_s": 6459
+    },
+    {
+      "start": "2026-10-19",
+      "foot_km": 15.2,
+      "wheel_km": 70.5,
+      "elev_m": 644,
+      "time_s": 14162
+    },
+    {
+      "start": "2026-10-26",
+      "foot_km": 20.3,
+      "wheel_km": 34.0,
+      "elev_m": 276,
+      "time_s": 11030
+    },
+    {
+      "start": "2026-11-02",
+      "foot_km": 15.3,
+      "wheel_km": 45.0,
+      "elev_m": 634,
+      "time_s": 12972
+    },
+    {
+      "start": "2026-11-09",
+      "foot_km": 15.0,
+      "wheel_km": 23.3,
+      "elev_m": 279,
+      "time_s": 7797
+    },
+    {
+      "start": "2026-11-16",
+      "foot_km": 11.1,
+      "wheel_km": 88.1,
+      "elev_m": 870,
+      "time_s": 16529
+    },
+    {
+      "start": "2026-11-23",
+      "foot_km": 5.0,
+      "wheel_km": 0.0,
+      "elev_m": 38,
+      "time_s": 1871
+    }
+  ],
+  "activities": [
+    {
+      "id": 21097792659,
+      "name": "Evening Run",
+      "type": "Run",
+      "sport": "foot",
+      "date": "2026-11-23",
+      "km": 5.006,
+      "elev_m": 38,
+      "time_s": 1871
+    },
+    {
+      "id": 21088032596,
+      "name": "Zwift - Group Ride: Stage 1 - Zwift Power Play",
+      "type": "VirtualRide",
+      "sport": "wheel",
+      "date": "2026-11-22",
+      "km": 31.287,
+      "elev_m": 222,
+      "time_s": 3376
+    },
+    {
+      "id": 21072904907,
+      "name": "Afternoon Run",
+      "type": "Run",
+      "sport": "foot",
+      "date": "2026-11-21",
+      "km": 6.063,
+      "elev_m": 64,
+      "time_s": 2311
+    },
+    {
+      "id": 21047671269,
+      "name": "Afternoon Ride",
+      "type": "Ride",
+      "sport": "wheel",
+      "date": "2026-11-19",
+      "km": 23.869,
+      "elev_m": 403,
+      "time_s": 5078
+    },
+    {
+      "id": 21032698811,
+      "name": "Morning Run",
+      "type": "Run",
+      "sport": "foot",
+      "date": "2026-11-18",
+      "km": 5.006,
+      "elev_m": 41,
+      "time_s": 1742
+    },
+    {
+      "id": 21013072901,
+      "name": "Zwift - Crit Cross in Watopia",
+      "type": "VirtualRide",
+      "sport": "wheel",
+      "date": "2026-11-16",
+      "km": 13.746,
+      "elev_m": 37,
+      "time_s": 1592
+    },
+    {
+      "id": 21013530114,
+      "name": "Zwift - California Dreamin' in Watopia",
+      "type": "VirtualRide",
+      "sport": "wheel",
+      "date": "2026-11-16",
+      "km": 19.225,
+      "elev_m": 103,
+      "time_s": 2430
+    },
+    {
+      "id": 21000351863,
+      "name": "Zwift - Group Run: Group Run 10k  (D)",
+      "type": "VirtualRun",
+      "sport": "foot",
+      "date": "2026-11-15",
+      "km": 9.986,
+      "elev_m": 0,
+      "time_s": 3331
+    },
+    {
+      "id": 20986045457,
+      "name": "Afternoon Run",
+      "type": "Run",
+      "sport": "foot",
+      "date": "2026-11-14",
+      "km": 5.004,
+      "elev_m": 34,
+      "time_s": 1721
+    },
+    {
+      "id": 20976170271,
+      "name": "Zwift - Eggum Coastal in Video",
+      "type": "VirtualRide",
+      "sport": "wheel",
+      "date": "2026-11-13",
+      "km": 16.05,
+      "elev_m": 165,
+      "time_s": 1895
+    },
+    {
+      "id": 20976285902,
+      "name": "Zwift - Two Bridges Loop in Watopia",
+      "type": "VirtualRide",
+      "sport": "wheel",
+      "date": "2026-11-13",
+      "km": 7.248,
+      "elev_m": 80,
+      "time_s": 850
+    },
+    {
+      "id": 20908275060,
+      "name": "Lunch Ride",
+      "type": "Ride",
+      "sport": "wheel",
+      "date": "2026-11-08",
+      "km": 11.403,
+      "elev_m": 191,
+      "time_s": 2373
+    },
+    {
+      "id": 20908387941,
+      "name": "Lunch Ride",
+      "type": "Ride",
+      "sport": "wheel",
+      "date": "2026-11-08",
+      "km": 11.449,
+      "elev_m": 190,
+      "time_s": 2192
+    },
+    {
+      "id": 20896328377,
+      "name": "Afternoon Run",
+      "type": "Run",
+      "sport": "foot",
+      "date": "2026-11-07",
+      "km": 10.32,
+      "elev_m": 100,
+      "time_s": 3931
+    }
+  ]
+}
