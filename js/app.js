@@ -974,3 +974,13 @@ function escapeHtml(s) {
     "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;",
   }[c]));
 }
+
+/* Offline shell + installable app. The worker is network-first, so a new
+   deploy appears on the next load without changing any version number. */
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("sw.js").catch(() => {
+      /* offline support is optional */
+    });
+  });
+}

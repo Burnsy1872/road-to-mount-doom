@@ -10,6 +10,8 @@ single JSON file.
 ```
 .
 ├── index.html                 markup shell (no data baked in)
+├── manifest.json              PWA manifest
+├── sw.js                      service worker (network-first)
 ├── css/style.css              all styling
 ├── js/
 │   ├── journey.js             route geometry + waypoints (map coordinates)
@@ -17,8 +19,11 @@ single JSON file.
 ├── data/data.json             generated — the only source of numbers
 ├── assets/
 │   ├── map.webp / map.jpg     2000 px map (see licensing note)
-│   ├── og.jpg                 1200×630 social card
-│   └── icon.svg
+│   ├── icon.svg               favicon / brand mark
+│   ├── icon-192.png            PWA icons
+│   ├── icon-512.png
+│   ├── icon-180.png           Apple touch icon
+│   └── og.jpg                 1200×630 social card
 ├── .github/workflows/
 │   └── update.yml             scheduled Strava refresh
 └── scripts/
@@ -101,6 +106,19 @@ without you touching it. If another repo already stores them as `CLIENT_ID`,
 `CLIENT_SECRET` and `REFRESH_TOKEN`, the workflow accepts those names too.
 
 To run it by hand: **Actions → Update ledger → Run workflow**.
+
+## Install it as an app
+
+The site is a PWA — `manifest.json` plus a service worker (`sw.js`).
+
+- **Android / Chrome:** browser menu → **Install app**
+- **iPhone / iPad (Safari):** Share → **Add to Home Screen**
+- **Desktop Chrome / Edge:** the install icon in the address bar
+
+The worker is network-first: online it always fetches the current files and
+refreshes the cache; offline it serves the last good copy. **There is no cache
+version to bump.** Commit and push; the next load picks it up. The daily ledger
+update needs no action at all.
 
 ## Deploy to GitHub Pages
 
