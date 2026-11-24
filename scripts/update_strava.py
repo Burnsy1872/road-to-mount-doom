@@ -92,7 +92,8 @@ def require_env(name: str) -> str:
     if not value:
         sys.exit(
             f"Missing {name}.\n"
-            "Put it in .env (see README) or run with --sample to build demo data."
+            "Put it in .env (see README), or add it as a repository secret in "
+            "GitHub Actions (Settings -> Secrets and variables -> Actions)."
         )
     return value
 
