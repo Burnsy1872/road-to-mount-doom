@@ -114,8 +114,12 @@ def get_access_token() -> str:
         TOKEN_URL, data=payload,
         headers={"Content-Type": "application/x-www-form-urlencoded"},
     )
-    with urllib.request.urlopen(req, timeout=30) as resp:
-        body = json.load(resp)
+    try:
+        with urllib.request.urlopen(req, timeout=30) as resp:
+            body = json.load(resp)
+    except urllib.error.HTTPError as exc:
+        detail = exc.read().decode("utf-8", "replace")
+        sys.exit(f"Strava rejected the token request ({exc.code}): {detail}")
 
     if "access_token" not in body:
         sys.exit(f"Strava rejected the refresh token: {body}")
