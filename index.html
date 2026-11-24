@@ -105,12 +105,15 @@
 
           <svg class="map-svg" id="map-svg" viewBox="0 0 2000 1091"
                preserveAspectRatio="none" aria-hidden="true" focusable="false">
+            <path class="route-casing" id="route-casing" fill="none"/>
             <path class="route-full" id="route-full" fill="none"/>
             <path class="route-travelled" id="route-travelled" fill="none"/>
             <g class="map-marker" id="map-marker">
-              <circle class="marker-halo" r="26"/>
-              <circle class="marker-ring" r="13"/>
-              <circle class="marker-core" r="5"/>
+              <g id="marker-scale">
+                <circle class="marker-halo" r="26"/>
+                <circle class="marker-ring" r="13"/>
+                <circle class="marker-core" r="5"/>
+              </g>
             </g>
           </svg>
 

@@ -201,7 +201,9 @@ function renderJourney(data) {
 function renderMap(data) {
   const km = Number(data.journey && data.journey.km) || 0;
 
-  $("#route-full").setAttribute("d", fullPath());
+  const road = fullPath();
+  $("#route-casing").setAttribute("d", road);
+  $("#route-full").setAttribute("d", road);
 
   const travelled = $("#route-travelled");
   travelled.setAttribute("d", travelledPath(km));
@@ -226,6 +228,21 @@ function renderMap(data) {
   } else {
     place(toSvg(pointAt(0)));
     requestAnimationFrame(() => setTimeout(() => place(target), 260));
+  }
+
+  // keep the marker legible when the map shrinks to phone width
+  const frame = $(".map-frame");
+  const markerScale = $("#marker-scale");
+  const sizeMarker = () => {
+    const w = frame.clientWidth || 1000;
+    const s = Math.max(1, Math.min(3.2, 1080 / w));
+    markerScale.setAttribute("transform", `scale(${s.toFixed(2)})`);
+  };
+  sizeMarker();
+  if ("ResizeObserver" in window) {
+    if (window.__mapRO) window.__mapRO.disconnect();
+    window.__mapRO = new ResizeObserver(sizeMarker);
+    window.__mapRO.observe(frame);
   }
 
   // pins

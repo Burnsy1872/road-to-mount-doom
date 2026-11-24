@@ -461,19 +461,30 @@ a:hover { color: var(--gold); }
   pointer-events: none;
 }
 
-.route-full {
-  stroke: rgba(45, 30, 12, .88);
-  stroke-width: 5.5;
+.route-casing {
+  stroke: rgba(248, 238, 217, .82);
+  stroke-width: 7;
   stroke-linecap: round;
   stroke-linejoin: round;
-  filter: drop-shadow(0 0 1.4px rgba(248, 238, 217, .95)) drop-shadow(0 0 2.6px rgba(248, 238, 217, .5));
+  fill: none;
+  vector-effect: non-scaling-stroke;
+}
+.route-full {
+  stroke: rgba(45, 30, 12, .92);
+  stroke-width: 3.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+  vector-effect: non-scaling-stroke;
 }
 .route-travelled {
   stroke: #f2c94c;
-  stroke-width: 9;
+  stroke-width: 4.8;
   stroke-linecap: round;
   stroke-linejoin: round;
-  filter: drop-shadow(0 0 5px rgba(212,175,55,.95));
+  fill: none;
+  vector-effect: non-scaling-stroke;
+  filter: drop-shadow(0 0 2px rgba(212,175,55,.9));
 }
 
 .map-marker { transition: transform 1.8s var(--ease); }
