@@ -24,14 +24,14 @@ jobs:
 
       - name: Check Strava secrets
         env:
-          STRAVA_CLIENT_ID: ${{ secrets.STRAVA_CLIENT_ID }}
-          STRAVA_CLIENT_SECRET: ${{ secrets.STRAVA_CLIENT_SECRET }}
-          STRAVA_REFRESH_TOKEN: ${{ secrets.STRAVA_REFRESH_TOKEN }}
+          STRAVA_CLIENT_ID: ${{ secrets.STRAVA_CLIENT_ID || secrets.CLIENT_ID }}
+          STRAVA_CLIENT_SECRET: ${{ secrets.STRAVA_CLIENT_SECRET || secrets.CLIENT_SECRET }}
+          STRAVA_REFRESH_TOKEN: ${{ secrets.STRAVA_REFRESH_TOKEN || secrets.REFRESH_TOKEN }}
         run: |
           missing=0
           for name in STRAVA_CLIENT_ID STRAVA_CLIENT_SECRET STRAVA_REFRESH_TOKEN; do
             if [ -z "${!name}" ]; then
-              echo "::error::$name is empty. Add it under Settings -> Secrets and variables -> Actions -> Secrets (not Variables)."
+              echo "::error::$name is empty. Add it as a repository secret (STRAVA_CLIENT_ID or CLIENT_ID)."
               missing=1
             fi
           done
@@ -39,9 +39,9 @@ jobs:
 
       - name: Pull activities from Strava
         env:
-          STRAVA_CLIENT_ID: ${{ secrets.STRAVA_CLIENT_ID }}
-          STRAVA_CLIENT_SECRET: ${{ secrets.STRAVA_CLIENT_SECRET }}
-          STRAVA_REFRESH_TOKEN: ${{ secrets.STRAVA_REFRESH_TOKEN }}
+          STRAVA_CLIENT_ID: ${{ secrets.STRAVA_CLIENT_ID || secrets.CLIENT_ID }}
+          STRAVA_CLIENT_SECRET: ${{ secrets.STRAVA_CLIENT_SECRET || secrets.CLIENT_SECRET }}
+          STRAVA_REFRESH_TOKEN: ${{ secrets.STRAVA_REFRESH_TOKEN || secrets.REFRESH_TOKEN }}
         run: python scripts/update_strava.py
 
       - name: Commit if anything changed

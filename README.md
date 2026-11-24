@@ -97,7 +97,8 @@ same aggregation, so the numbers agree.
 `.github/workflows/update.yml` runs the script every morning and commits the new
 `data/data.json`. Add the three values as repository secrets
 (`STRAVA_CLIENT_ID`, `STRAVA_CLIENT_SECRET`, `STRAVA_REFRESH_TOKEN`) and it runs
-without you touching it.
+without you touching it. If another repo already stores them as `CLIENT_ID`,
+`CLIENT_SECRET` and `REFRESH_TOKEN`, the workflow accepts those names too.
 
 To run it by hand: **Actions → Update ledger → Run workflow**.
 
