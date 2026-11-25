@@ -543,7 +543,14 @@ function renderQuests(data) {
         </div>
         <p class="oath-note">${note}</p>`;
       grid.appendChild(el);
-      if (isKept) queueOathCelebration(el, month.start, o.id);
+      if (isKept) {
+        /* a slow sheen keeps a kept card alive on every visit */
+        const glow = document.createElement("span");
+        glow.className = "oath-glow";
+        glow.setAttribute("aria-hidden", "true");
+        el.appendChild(glow);
+        queueOathCelebration(el, month.start, o.id);
+      }
     });
 
     const keptLine = $("#oath-kept-line");

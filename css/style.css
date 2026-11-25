@@ -1152,6 +1152,7 @@ a:hover { color: var(--gold); }
 
 .oath-card.is-kept {
   border-color: var(--gold);
+  isolation: isolate;
   background:
     radial-gradient(130% 90% at 50% -12%, rgba(212, 175, 55, .22), transparent 62%),
     linear-gradient(160deg, var(--parch-50), var(--parch-200));
@@ -1159,6 +1160,10 @@ a:hover { color: var(--gold); }
     var(--shadow-card),
     0 0 0 1px rgba(212, 175, 55, .3),
     0 0 28px -12px rgba(212, 175, 55, .85);
+}
+.oath-card.is-kept > *:not(.oath-glow) {
+  position: relative;
+  z-index: 1;
 }
 .oath-card.is-kept::before {
   height: 4px;
@@ -1202,6 +1207,27 @@ a:hover { color: var(--gold); }
   text-indent: .14em;
   transform: rotate(-12deg);
   pointer-events: none;
+  z-index: 2;
+}
+
+/* a slow ambient sheen so a kept card still feels alive on later visits */
+.oath-glow {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: linear-gradient(105deg,
+    transparent 37%,
+    rgba(255, 252, 236, .62) 47%,
+    rgba(243, 220, 138, .34) 53%,
+    transparent 63%);
+  transform: translateX(-130%);
+  animation: oath-glow 9s ease-in-out infinite;
+}
+
+@keyframes oath-glow {
+  0%        { transform: translateX(-130%); }
+  48%, 100% { transform: translateX(130%); }
 }
 
 /* the celebration: a light sweep and the seal stamping in, played once */
@@ -1247,7 +1273,8 @@ a:hover { color: var(--gold); }
 @media (prefers-reduced-motion: reduce) {
   .oath-card.is-celebrating { animation: none; }
   .oath-card.is-celebrating::after { animation: none; }
-  .oath-spark { display: none; }
+  .oath-spark,
+  .oath-glow { display: none; }
 }
 
 /* ---------- feed ---------- */
