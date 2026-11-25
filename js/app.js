@@ -506,26 +506,29 @@ function renderQuests(data) {
 
     const goals = (data.goals && data.goals.month) || {};
     const oaths = [
-      { title: "The Road to Rivendell", value: month.foot_km || 0,
+      { id: "foot", title: "The Road to Rivendell", value: month.foot_km || 0,
         goal: goals.foot_km, unit: "km", accent: "var(--moss)",
         kept: "The oath is kept — every further kilometre is a gift." },
-      { title: "The Ride to Rohan", value: month.wheel_km || 0,
+      { id: "wheel", title: "The Ride to Rohan", value: month.wheel_km || 0,
         goal: goals.wheel_km, unit: "km", accent: "var(--amber)",
         kept: "The oath is kept — the Mark is within reach." },
     ].filter((o) => o.goal > 0);
 
     const grid = $("#oath-grid");
     grid.textContent = "";
+    let keptCount = 0;
     oaths.forEach((o) => {
       const pct = Math.min(100, (o.value / o.goal) * 100);
       const left = Math.max(0, o.goal - o.value);
-      const note = left <= 0 ? o.kept
+      const isKept = left <= 0;
+      if (isKept) keptCount++;
+      const note = isKept ? o.kept
         : pct >= 75 ? `The final stretch — ${num(left, 1)} km left to conquer.`
         : pct >= 50 ? `Past the halfway mark — ${num(left, 1)} km remaining.`
         : `${num(left, 1)} km still to go this month.`;
 
       const el = document.createElement("article");
-      el.className = "oath-card";
+      el.className = isKept ? "oath-card is-kept" : "oath-card";
       el.style.setProperty("--accent", o.accent);
       el.innerHTML = `
         <div class="oath-top">
@@ -540,8 +543,46 @@ function renderQuests(data) {
         </div>
         <p class="oath-note">${note}</p>`;
       grid.appendChild(el);
+      if (isKept) queueOathCelebration(el, month.start, o.id);
     });
+
+    const keptLine = $("#oath-kept-line");
+    if (keptLine) {
+      const allKept = oaths.length > 1 && keptCount === oaths.length;
+      keptLine.hidden = !allKept;
+      keptLine.textContent = allKept
+        ? "Two oaths kept — the road asks nothing more this month."
+        : "";
+    }
   }
+}
+
+/* A kept oath gets a gold seal in the card. The first time it is scrolled
+   into view on this device it also stamps in and catches the light, once;
+   the browser remembers that per month so it never replays. */
+function queueOathCelebration(card, monthStart, id) {
+  if (reduceMotion) return;
+
+  const key = `rtmd:oath:${monthStart || ""}:${id}`;
+  let seen = false;
+  try { seen = localStorage.getItem(key) === "1"; } catch { /* storage blocked: still celebrate */ }
+  if (seen) return;
+
+  const celebrate = () => {
+    const spark = document.createElement("span");
+    spark.className = "oath-spark";
+    spark.setAttribute("aria-hidden", "true");
+    card.appendChild(spark);
+    card.classList.add("is-celebrating");
+    spark.addEventListener("animationend", () => spark.remove(), { once: true });
+    try { localStorage.setItem(key, "1"); } catch { /* private mode */ }
+  };
+
+  if (!("IntersectionObserver" in window)) { celebrate(); return; }
+  const io = new IntersectionObserver((entries) => {
+    if (entries.some((e) => e.isIntersecting)) { celebrate(); io.disconnect(); }
+  }, { threshold: 0.45 });
+  io.observe(card);
 }
 
 /* ------------------------------------------------------------------ */

@@ -1132,6 +1132,124 @@ a:hover { color: var(--gold); }
   color: var(--on-parch-soft);
 }
 
+/* ---------- a kept oath: gold trim, a seal, one stamp of light ---------- */
+
+.oath-kept-line {
+  margin: 0 0 14px;
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: .82rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+}
+.oath-kept-line::before,
+.oath-kept-line::after {
+  content: "✦";
+  margin: 0 .7em;
+  color: var(--gold);
+}
+
+.oath-card.is-kept {
+  border-color: var(--gold);
+  background:
+    radial-gradient(130% 90% at 50% -12%, rgba(212, 175, 55, .22), transparent 62%),
+    linear-gradient(160deg, var(--parch-50), var(--parch-200));
+  box-shadow:
+    var(--shadow-card),
+    0 0 0 1px rgba(212, 175, 55, .3),
+    0 0 28px -12px rgba(212, 175, 55, .85);
+}
+.oath-card.is-kept::before {
+  height: 4px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light), var(--gold));
+  opacity: 1;
+  box-shadow: 0 0 12px rgba(212, 175, 55, .7);
+}
+.oath-card.is-kept .oath-pct {
+  background: linear-gradient(160deg, var(--gold-light), var(--gold));
+  border-color: var(--bronze-dark);
+  color: #3a2a12;
+  box-shadow: 0 0 10px -2px rgba(212, 175, 55, .8);
+}
+.oath-card.is-kept .oath-fill {
+  background: linear-gradient(90deg, var(--gold-light), var(--gold));
+  box-shadow: 0 0 12px rgba(212, 175, 55, .75);
+}
+.oath-card.is-kept .oath-note { color: var(--bronze-dark); }
+
+/* the wax seal */
+.oath-card.is-kept::after {
+  content: "KEPT";
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  width: 54px;
+  height: 54px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: radial-gradient(circle at 34% 30%, var(--gold-light), var(--gold) 58%, #a9761f);
+  box-shadow:
+    inset 0 0 0 2px rgba(107, 74, 42, .45),
+    inset 0 0 0 5px rgba(255, 248, 216, .32),
+    0 3px 8px -2px rgba(16, 12, 6, .45);
+  color: #3a2a12;
+  font-family: var(--font-display);
+  font-size: .58rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-indent: .14em;
+  transform: rotate(-12deg);
+  pointer-events: none;
+}
+
+/* the celebration: a light sweep and the seal stamping in, played once */
+.oath-spark {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(105deg,
+    transparent 36%,
+    rgba(255, 255, 255, .85) 47%,
+    rgba(243, 220, 138, .75) 54%,
+    transparent 66%);
+  transform: translateX(-130%);
+  animation: oath-sweep 1150ms ease-out 120ms both;
+}
+.oath-card.is-celebrating { animation: oath-pop 900ms cubic-bezier(.22, .61, .36, 1) both; }
+.oath-card.is-celebrating::after { animation: oath-stamp 850ms cubic-bezier(.34, 1.56, .64, 1) both; }
+
+@keyframes oath-pop {
+  0%   { transform: scale(.985); box-shadow: 0 0 0 rgba(212, 175, 55, 0); }
+  45%  { transform: scale(1.008); box-shadow: 0 0 36px -6px rgba(212, 175, 55, .85); }
+  100% { transform: scale(1); }
+}
+@keyframes oath-stamp {
+  0%   { opacity: 0; transform: rotate(-32deg) scale(1.9); }
+  60%  { opacity: 1; }
+  100% { opacity: 1; transform: rotate(-12deg) scale(1); }
+}
+@keyframes oath-sweep {
+  to { transform: translateX(130%); }
+}
+
+@media (max-width: 480px) {
+  .oath-card.is-kept::after {
+    top: 10px;
+    left: 10px;
+    width: 46px;
+    height: 46px;
+    font-size: .5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .oath-card.is-celebrating { animation: none; }
+  .oath-card.is-celebrating::after { animation: none; }
+  .oath-spark { display: none; }
+}
+
 /* ---------- feed ---------- */
 
 .journal-card {
