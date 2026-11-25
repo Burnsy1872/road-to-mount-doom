@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-11-24T19:12:59+00:00",
+  "generated_at": "2026-11-25T09:54:57+00:00",
   "source": "strava",
   "athlete": {
     "name": ""
   },
   "quote": {
-    "text": "Courage is found in unlikely places.",
-    "author": "Gildor"
+    "text": "Even the smallest person can change the course of the future.",
+    "author": "Galadriel"
   },
   "journey": {
     "start": "2026-11-17",
@@ -104,7 +104,7 @@
     }
   ],
   "streak": {
-    "current": 3,
+    "current": 0,
     "longest": 5,
     "longest_end": "2023-05-30"
   },
