@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-11-26T15:16:21+00:00",
+  "generated_at": "2026-11-27T01:10:16+00:00",
   "source": "strava",
   "athlete": {
     "name": ""
   },
   "quote": {
-    "text": "There is nothing like looking, if you want to find something.",
+    "text": "It's a dangerous business, Frodo, going out your door.",
     "author": "Bilbo Baggins"
   },
   "journey": {
@@ -104,7 +104,7 @@
     }
   ],
   "streak": {
-    "current": 1,
+    "current": 0,
     "longest": 5,
     "longest_end": "2023-05-30"
   },
