@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-28T14:12:41+00:00",
+  "generated_at": "2026-11-28T16:03:27+00:00",
   "source": "strava",
   "athlete": {
     "name": ""
@@ -11,14 +11,14 @@
   "journey": {
     "start": "2026-11-17",
     "goal_km": 2863.0,
-    "km": 88.1
+    "km": 100.6
   },
   "totals": {
     "foot": {
-      "activities": 412,
-      "km": 2722.0,
+      "activities": 413,
+      "km": 2734.5,
       "elev_m": 10378,
-      "time_s": 1001990
+      "time_s": 1006762
     },
     "wheel": {
       "activities": 95,
@@ -27,26 +27,26 @@
       "time_s": 304059
     },
     "all": {
-      "activities": 507,
-      "km": 4803.8,
+      "activities": 508,
+      "km": 4816.3,
       "elev_m": 26908,
-      "time_s": 1306049,
-      "active_days": 488
+      "time_s": 1310821,
+      "active_days": 489
     }
   },
   "periods": {
     "week": {
       "start": "2026-11-23",
-      "foot_km": 11.3,
+      "foot_km": 23.9,
       "wheel_km": 10.5,
       "foot_elev_m": 38.0,
       "wheel_elev_m": 43.0,
-      "foot_time_s": 4264,
+      "foot_time_s": 9036,
       "wheel_time_s": 1278
     },
     "month": {
       "start": "2026-11-01",
-      "foot_km": 57.7,
+      "foot_km": 70.3,
       "wheel_km": 200.9
     }
   },
@@ -104,7 +104,7 @@
     }
   ],
   "streak": {
-    "current": 0,
+    "current": 1,
     "longest": 5,
     "longest_end": "2023-05-30"
   },
@@ -188,13 +188,23 @@
     },
     {
       "start": "2026-11-23",
-      "foot_km": 11.3,
+      "foot_km": 23.9,
       "wheel_km": 10.5,
       "elev_m": 81,
-      "time_s": 5542
+      "time_s": 10314
     }
   ],
   "activities": [
+    {
+      "id": 21155823491,
+      "name": "Zwift - Mayan Bridge Loop in Watopia",
+      "type": "VirtualRun",
+      "sport": "foot",
+      "date": "2026-11-28",
+      "km": 12.54,
+      "elev_m": 0,
+      "time_s": 4772
+    },
     {
       "id": 21121261892,
       "name": "Zwift - Seaside Sprint Run in Watopia",
@@ -324,16 +334,6 @@
       "km": 7.248,
       "elev_m": 80,
       "time_s": 850
-    },
-    {
-      "id": 20908275060,
-      "name": "Lunch Ride",
-      "type": "Ride",
-      "sport": "wheel",
-      "date": "2026-11-08",
-      "km": 11.403,
-      "elev_m": 191,
-      "time_s": 2373
     }
   ]
 }
